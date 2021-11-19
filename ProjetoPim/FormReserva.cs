@@ -15,6 +15,7 @@ namespace ProjetoPim
     public partial class FormReserva : Form
     {
         private FormEditarReserva JanelaEditar;
+        private FormServico JanelaServico;
 
         public FormReserva()
         {
@@ -22,6 +23,7 @@ namespace ProjetoPim
             FillDrop();
 
             JanelaEditar = new FormEditarReserva();
+            JanelaServico = new FormServico();
             JanelaEditar.OnFechar += FormEdit_OnFechar;
         }
 
@@ -293,7 +295,7 @@ namespace ProjetoPim
         {
             try
             {
-                if(txtDtEntrada.Text == "  /  /" || txtDtEntrada.Text == "  /  /")
+                if (txtDtEntrada.Text == "  /  /" || txtDtEntrada.Text == "  /  /")
                 {
                     MessageBox.Show("Data Inválida! ", "Reservar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -361,16 +363,16 @@ namespace ProjetoPim
 
             Reserva reserva = new Reserva()
             {
-               IdReserva = row.IdReserva,
-               DtEntrada = row.DtEntrada,
-               DtSaida = row.DtSaida,
-               StatusReserva = row.StatusReserva,
-               IdHospede = row.IdHospede,
-               NomeHospede = row.NomeHospede,
-               IdQuarto = row.IdQuarto,
-               DescQuarto = row.DescQuarto,
-               ValorDiaria = row.ValorDiaria
-        };
+                IdReserva = row.IdReserva,
+                DtEntrada = row.DtEntrada,
+                DtSaida = row.DtSaida,
+                StatusReserva = row.StatusReserva,
+                IdHospede = row.IdHospede,
+                NomeHospede = row.NomeHospede,
+                IdQuarto = row.IdQuarto,
+                DescQuarto = row.DescQuarto,
+                ValorDiaria = row.ValorDiaria
+            };
 
             try
             {
@@ -391,14 +393,25 @@ namespace ProjetoPim
 
         private void InserirServico()
         {
+            var row = dgvReservas.CurrentRow.DataBoundItem as Reserva;
 
+            try
+            {
+                JanelaServico.Registro_Preencher(row.IdReserva);
+
+                JanelaServico.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorrreu um erro. " + ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CancelarReserva()
         {
             try
             {
-               
+
                 HotelariaContext context = new HotelariaContext();
 
                 var row = dgvReservas.CurrentRow.DataBoundItem as Reserva;
@@ -476,9 +489,9 @@ namespace ProjetoPim
                     return;
                 }
             }
-            
+
         }
 
-      
+
     }
 }

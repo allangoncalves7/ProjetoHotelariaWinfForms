@@ -58,6 +58,7 @@ namespace ProjetoPim
 
             try
             {
+                txtId.Text = reserva.IdReserva.ToString();
                 txtDtEntrada.Text = reserva.DtEntrada.ToString();
                 txtDtSaida.Text = reserva.DtSaida.ToString();
 
@@ -77,6 +78,106 @@ namespace ProjetoPim
 
         }
 
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            EditarReserva();
+        }
 
+        private void EditarReserva()
+        {
+            try
+            {
+                if (txtDtEntrada.Text == "  /  /" || txtDtEntrada.Text == "  /  /")
+                {
+                    MessageBox.Show("Data Inválida! ", "Reservar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+
+                HotelariaContext context = new HotelariaContext();
+
+                var idHospede = ((KeyValuePair<string, int>)cbHospede.SelectedItem).Value;
+                var idQuarto = ((KeyValuePair<string, int>)cbQuartos.SelectedItem).Value;
+
+
+                Reserva reserva = new Reserva()
+                {
+                    IdReserva = Convert.ToInt32(txtId.Text),
+                    DtEntrada = Convert.ToDateTime(txtDtEntrada.Text),
+                    DtSaida = Convert.ToDateTime(txtDtSaida.Text),
+                    IdQuarto = idQuarto,
+                    IdHospede = idHospede,
+                    StatusReserva = txtStatus.Text
+                };
+
+                var insert = context.EditarReserva(reserva);
+
+                if (insert)
+                {
+                    MessageBox.Show("Reserva atualizada com sucesso. ", "Reservar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Não foi possivel atualizar reserva. Motivo: " + ex, "Reservar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+
+        }
+
+        private void ExcluirReserva()
+        {
+            try
+            {
+                if (MessageBox.Show("Deseja excluir a reserva?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    HotelariaContext context = new HotelariaContext();
+                    var delete = context.ExcluirReserva(Convert.ToInt32(txtId.Text));
+
+                    if (delete)
+                    {
+                        MessageBox.Show("Reserva excluida com sucesso. ", "Excluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Não foi possivel excluir reserva. Motivo: " + ex, "Reservar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            ExcluirReserva();
+            Registro_LimparCampos();
+        }
+
+        private void Registro_LimparCampos()
+        {
+            txtId.Text = String.Empty;
+            txtDtEntrada.Text = String.Empty;
+            txtDtSaida.Text = String.Empty;
+            txtStatus.Text = String.Empty;
+
+        }
+
+        private void FormEditarReserva_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

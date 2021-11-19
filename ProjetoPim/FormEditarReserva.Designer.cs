@@ -42,6 +42,10 @@ namespace ProjetoPim
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.lbStatus = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lbId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +77,7 @@ namespace ProjetoPim
             // 
             // txtDtSaida
             // 
-            this.txtDtSaida.Location = new System.Drawing.Point(206, 267);
+            this.txtDtSaida.Location = new System.Drawing.Point(206, 259);
             this.txtDtSaida.Mask = "00/00/0000";
             this.txtDtSaida.Name = "txtDtSaida";
             this.txtDtSaida.Size = new System.Drawing.Size(100, 20);
@@ -120,7 +124,7 @@ namespace ProjetoPim
             // lbDtSaida
             // 
             this.lbDtSaida.AutoSize = true;
-            this.lbDtSaida.Location = new System.Drawing.Point(203, 251);
+            this.lbDtSaida.Location = new System.Drawing.Point(203, 243);
             this.lbDtSaida.Name = "lbDtSaida";
             this.lbDtSaida.Size = new System.Drawing.Size(62, 13);
             this.lbDtSaida.TabIndex = 28;
@@ -143,6 +147,7 @@ namespace ProjetoPim
             this.btnCancelar.TabIndex = 32;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnExcluir
             // 
@@ -152,6 +157,7 @@ namespace ProjetoPim
             this.btnExcluir.TabIndex = 31;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnSalvar
             // 
@@ -161,12 +167,51 @@ namespace ProjetoPim
             this.btnSalvar.TabIndex = 30;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Location = new System.Drawing.Point(206, 308);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(100, 20);
+            this.txtStatus.TabIndex = 33;
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.Location = new System.Drawing.Point(206, 291);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(37, 13);
+            this.lbStatus.TabIndex = 34;
+            this.lbStatus.Text = "Status";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(132, 204);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(28, 20);
+            this.txtId.TabIndex = 35;
+            this.txtId.Visible = false;
+            // 
+            // lbId
+            // 
+            this.lbId.AutoSize = true;
+            this.lbId.Location = new System.Drawing.Point(110, 207);
+            this.lbId.Name = "lbId";
+            this.lbId.Size = new System.Drawing.Size(16, 13);
+            this.lbId.TabIndex = 36;
+            this.lbId.Text = "Id";
+            this.lbId.Visible = false;
             // 
             // FormEditarReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbId);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.lbStatus);
+            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnSalvar);
@@ -182,6 +227,7 @@ namespace ProjetoPim
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormEditarReserva";
             this.Text = "FormEditarReserva";
+            this.Load += new System.EventHandler(this.FormEditarReserva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -203,5 +249,9 @@ namespace ProjetoPim
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lbId;
     }
 }

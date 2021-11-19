@@ -38,7 +38,7 @@ namespace ProjetoPim.Data
 
                 throw new Exception("Ocorrreu um erro. Motivo: " + ex);
             }
-            
+
 
 
         }
@@ -102,16 +102,16 @@ namespace ProjetoPim.Data
 
                 throw ex;
             }
-            
-        } 
-        
+
+        }
+
         public List<tbReserva> ConsultarReservasByDate(DateTime minDate, DateTime maxDate)
         {
             try
             {
                 var dt = new BancoDataContext(connectionString);
 
-                var reservas = from res in dt.tbReservas 
+                var reservas = from res in dt.tbReservas
                                where (res.DtEntrada >= minDate) && (res.DtSaida <= maxDate)
                                select res;
 
@@ -122,7 +122,7 @@ namespace ProjetoPim.Data
 
                 throw ex;
             }
-            
+
         }
 
         public bool CadastrarReserva(Reserva reserva)
@@ -132,10 +132,10 @@ namespace ProjetoPim.Data
                 var dt = new BancoDataContext(connectionString);
                 tbReserva tb = new tbReserva
                 {
-                   DtEntrada = reserva.DtEntrada,
-                   DtSaida = reserva.DtSaida, 
-                   IdQuarto = reserva.IdQuarto,
-                   IdHospede = reserva.IdHospede
+                    DtEntrada = reserva.DtEntrada,
+                    DtSaida = reserva.DtSaida,
+                    IdQuarto = reserva.IdQuarto,
+                    IdHospede = reserva.IdHospede
                 };
 
                 dt.tbReservas.InsertOnSubmit(tb);
@@ -149,7 +149,51 @@ namespace ProjetoPim.Data
                 throw new Exception("Ocorrreu um erro. Motivo: " + ex);
             }
         }
-        
+
+        public bool EditarReserva(Reserva reserva)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var update = dt.tbReservas.Where(x => x.IdReserva == reserva.IdReserva).FirstOrDefault();
+                update.DtEntrada = reserva.DtEntrada;
+                update.DtSaida = reserva.DtSaida;
+                update.IdQuarto = reserva.IdQuarto;
+                update.IdHospede = reserva.IdHospede;
+
+                dt.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
+        public bool ExcluirReserva(int id)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var delete = dt.tbReservas.Where(x => x.IdReserva == id).FirstOrDefault();
+
+                dt.tbReservas.DeleteOnSubmit(delete);
+                dt.SubmitChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
         public bool CancelarReserva(int id)
         {
             try
@@ -182,7 +226,7 @@ namespace ProjetoPim.Data
                 var dt = new BancoDataContext(connectionString);
 
                 var quartos = from quarto in dt.tbQuartos
-                               select quarto;
+                              select quarto;
 
                 return quartos.ToList();
             }
@@ -191,7 +235,98 @@ namespace ProjetoPim.Data
 
                 throw ex;
             }
-            
+
+        }
+
+        #endregion
+
+        #region SERVIÇO
+
+        public bool CadastrarServico(Servico servico)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+                tbServico tb = new tbServico
+                {
+                    Tipo = servico.Tipo,
+                    Valor = servico.Valor,
+                    IdReserva = servico.IdReserva
+                };
+
+                dt.tbServicos.InsertOnSubmit(tb);
+                dt.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
+        public List<tbServico> ConsultarServicos()
+        {
+
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var servicos = from serv in dt.tbServicos
+                              select serv;
+
+                return servicos.
+                    OrderByDescending(x => x.IdServico).
+                    ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool EditarServico(Servico servico)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var update = dt.tbServicos.Where(x => x.IdServico== servico.IdServico).FirstOrDefault();
+                update.Tipo = servico.Tipo;
+                update.Valor = servico.Valor;
+
+                dt.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
+        public bool ExcluirServico(int id)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var delete = dt.tbServicos.Where(x => x.IdServico == id).FirstOrDefault();
+
+                dt.tbServicos.DeleteOnSubmit(delete);
+                dt.SubmitChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
         }
 
         #endregion
