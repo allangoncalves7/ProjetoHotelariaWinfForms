@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetoPim
 {
-    public partial class Servico : Form
+    public partial class FormServico : Form
     {
-        public Servico()
+        public FormServico()
         {
             InitializeComponent();
         }

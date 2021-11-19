@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProjetoPim.models
 {
-    class Reserva
+    public class Reserva
     {
+        public int IdReserva { get; set; }
         public DateTime DtEntrada { get; set; }
 
         public DateTime DtSaida { get; set; }
-        public Enum StatusReserva { get; set; }
+        public string StatusReserva { get; set; }
         //ForeignKey
-        public Quarto Quarto { get; set; }
-        public int IdQuarto { get; set; }
-        //ForeignKey
-        public Hospede Hospede { get; set; }
-        public int IdHospede { get; set; }
+        public int IdHospede{ get; set; }
+        public string NomeHospede{ get; set; } 
+        public int IdQuarto{ get; set; }
+        public string DescQuarto{ get; set; }
+        public decimal ValorDiaria { get; set; }
+
     }
 }

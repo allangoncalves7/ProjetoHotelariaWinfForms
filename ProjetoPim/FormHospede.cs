@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ProjetoPim
 {
-    public partial class Hospede : Form
+    public partial class FormHospede : Form
     {
-        public Hospede()
+        public FormHospede()
         {
             InitializeComponent();
         }
@@ -67,16 +67,16 @@ namespace ProjetoPim
         {
             try
             {
-                var registro = RegistrarHospede(Nome.Text, CPF.Text, Telefone.Text, Convert.ToDateTime(Data.Text), Email.Text);
+                //var registro = RegistrarHospede(Nome.Text, CPF.Text, Telefone.Text, Convert.ToDateTime(Data.Text), Email.Text);
 
-                if (registro)
-                {
-                    MessageBox.Show(
-                   $"Cadastro realizado com sucesso",
-                   "Form",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information
-                    );
-                }
+                //if (registro)
+                //{
+                //    MessageBox.Show(
+                //   $"Cadastro realizado com sucesso",
+                //   "Form",
+                //   MessageBoxButtons.OK, MessageBoxIcon.Information
+                //    );
+                //}
             }
             catch (Exception ex)
             {
@@ -156,7 +156,7 @@ namespace ProjetoPim
                 Senha = senha
             };
 
-            PimHotelariaDataContext context = new PimHotelariaDataContext();
+            HotelariaContext context = new HotelariaContext();
 
             var insert = context.InserirHospede(hosp);
 

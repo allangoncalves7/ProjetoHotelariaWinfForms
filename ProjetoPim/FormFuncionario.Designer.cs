@@ -1,6 +1,6 @@
 ﻿namespace ProjetoPim
 {
-    partial class Funcionario
+    partial class FormFuncionario
     {
         /// <summary>
         /// Required designer variable.

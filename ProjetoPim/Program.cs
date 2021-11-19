@@ -16,7 +16,7 @@ namespace ProjetoPim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Hospede()); 
+            Application.Run(new FormReserva()); 
             //Application.Run(new Funcionario());
             //Application.Run(new Quarto());
             //Application.Run(new Servico());

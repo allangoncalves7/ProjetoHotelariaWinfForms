@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetoPim
 {
-    public partial class Quarto : Form
+    public partial class FormQuarto : Form
     {
-        public Quarto()
+        public FormQuarto()
         {
             InitializeComponent();
         }

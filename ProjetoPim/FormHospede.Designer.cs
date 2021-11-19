@@ -1,6 +1,6 @@
 ﻿namespace ProjetoPim
 {
-    partial class Hospede
+    partial class FormHospede
     {
         /// <summary>
         /// Variável de designer necessária.

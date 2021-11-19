@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjetoPim.models
 {
-    class Quarto
+    public class Quarto
     {
+        public int IdQuarto { get; set; }
         public string Descricao { get; set; }
         public decimal ValorDiaria { get; set; }
     }

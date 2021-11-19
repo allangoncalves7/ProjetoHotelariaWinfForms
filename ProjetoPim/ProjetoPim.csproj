@@ -57,18 +57,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Banco.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Data\HortelariaContext.cs" />
-    <Compile Include="Funcionario.cs">
+    <Compile Include="Data\HotelariaContext.cs" />
+    <Compile Include="FormEditarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionario.Designer.cs">
-      <DependentUpon>Funcionario.cs</DependentUpon>
+    <Compile Include="FormEditarReserva.Designer.cs">
+      <DependentUpon>FormEditarReserva.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hospede.cs">
+    <Compile Include="FormFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hospede.Designer.cs">
-      <DependentUpon>Hospede.cs</DependentUpon>
+    <Compile Include="FormFuncionario.Designer.cs">
+      <DependentUpon>FormFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHospede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHospede.Designer.cs">
+      <DependentUpon>FormHospede.cs</DependentUpon>
     </Compile>
     <Compile Include="models\Funcionario.cs" />
     <Compile Include="models\Hospede.cs" />
@@ -76,34 +82,43 @@
     <Compile Include="models\Quarto.cs" />
     <Compile Include="models\Reserva.cs" />
     <Compile Include="models\Servico.cs" />
-    <Compile Include="Pagamento.cs">
+    <Compile Include="FormPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pagamento.Designer.cs">
-      <DependentUpon>Pagamento.cs</DependentUpon>
+    <Compile Include="FormPagamento.Designer.cs">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quarto.cs">
+    <Compile Include="FormQuarto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Quarto.Designer.cs">
-      <DependentUpon>Quarto.cs</DependentUpon>
+    <Compile Include="FormQuarto.Designer.cs">
+      <DependentUpon>FormQuarto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servico.cs">
+    <Compile Include="FormReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servico.Designer.cs">
-      <DependentUpon>Servico.cs</DependentUpon>
+    <Compile Include="FormReserva.Designer.cs">
+      <DependentUpon>FormReserva.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Funcionario.resx">
-      <DependentUpon>Funcionario.cs</DependentUpon>
+    <Compile Include="FormServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServico.Designer.cs">
+      <DependentUpon>FormServico.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormEditarReserva.resx">
+      <DependentUpon>FormEditarReserva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Hospede.resx">
-      <DependentUpon>Hospede.cs</DependentUpon>
+    <EmbeddedResource Include="FormFuncionario.resx">
+      <DependentUpon>FormFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pagamento.resx">
-      <DependentUpon>Pagamento.cs</DependentUpon>
+    <EmbeddedResource Include="FormHospede.resx">
+      <DependentUpon>FormHospede.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPagamento.resx">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,12 +128,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Quarto.resx">
-      <DependentUpon>Quarto.cs</DependentUpon>
+    <EmbeddedResource Include="FormQuarto.resx">
+      <DependentUpon>FormQuarto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servico.resx">
-      <DependentUpon>Servico.cs</DependentUpon>
+    <EmbeddedResource Include="FormReserva.resx">
+      <DependentUpon>FormReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServico.resx">
+      <DependentUpon>FormServico.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Data\Banco.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -142,9 +161,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coin %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nossoHotelLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
