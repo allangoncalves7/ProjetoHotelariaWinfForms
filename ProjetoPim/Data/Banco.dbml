@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="BancoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PIMHOTELARIAUNIP.mssql.somee.com;User ID=allangoncalves_SQLLogin_5" SettingsObjectName="ProjetoPim.Properties.Settings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbHospede" Member="tbHospedes">
+    <Type Name="tbHospede">
+      <Column Name="IdHospede" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Cpf" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DtNasc" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Senha" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="tbHospede_tbReserva" Member="tbReservas" ThisKey="IdHospede" OtherKey="IdHospede" Type="tbReserva" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbFuncionario" Member="tbFuncionarios">
+    <Type Name="tbFuncionario">
+      <Column Name="IdFuncionario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DtNasc" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Senha" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbPagamento" Member="tbPagamentos">
+    <Type Name="tbPagamento">
+      <Column Name="IdPagamento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPagamento" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IdReserva" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdServico" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tbReserva_tbPagamento" Member="tbReserva" ThisKey="IdReserva" OtherKey="IdReserva" Type="tbReserva" IsForeignKey="true" />
+      <Association Name="tbServico_tbPagamento" Member="tbServico" ThisKey="IdServico" OtherKey="IdServico" Type="tbServico" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbQuarto" Member="tbQuartos">
+    <Type Name="tbQuarto">
+      <Column Name="IdQuarto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ValorDiaria" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="tbQuarto_tbReserva" Member="tbReservas" ThisKey="IdQuarto" OtherKey="IdQuarto" Type="tbReserva" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbReserva" Member="tbReservas">
+    <Type Name="tbReserva">
+      <Column Name="IdReserva" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DtEntrada" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DtSaida" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StatusReserva" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdQuarto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdHospede" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tbReserva_tbPagamento" Member="tbPagamentos" ThisKey="IdReserva" OtherKey="IdReserva" Type="tbPagamento" />
+      <Association Name="tbReserva_tbServico" Member="tbServicos" ThisKey="IdReserva" OtherKey="IdReserva" Type="tbServico" />
+      <Association Name="tbHospede_tbReserva" Member="tbHospede" ThisKey="IdHospede" OtherKey="IdHospede" Type="tbHospede" IsForeignKey="true" />
+      <Association Name="tbQuarto_tbReserva" Member="tbQuarto" ThisKey="IdQuarto" OtherKey="IdQuarto" Type="tbQuarto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbServico" Member="tbServicos">
+    <Type Name="tbServico">
+      <Column Name="IdServico" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IdReserva" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tbServico_tbPagamento" Member="tbPagamentos" ThisKey="IdServico" OtherKey="IdServico" Type="tbPagamento" />
+      <Association Name="tbReserva_tbServico" Member="tbReserva" ThisKey="IdReserva" OtherKey="IdReserva" Type="tbReserva" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

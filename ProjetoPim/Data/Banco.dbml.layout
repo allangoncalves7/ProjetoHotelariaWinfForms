@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 9.75" name="Banco">
+  <DataContextMoniker Name="/BancoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1442f3e7-d1ad-4ebc-b0ca-800f209c4fde" absoluteBounds="0.75, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/BancoDataContext/tbHospede" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b497935f-c93d-4494-9d28-2b3c48641228" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="de778003-1b39-4d23-8262-20a43dc7d185" absoluteBounds="0.75, 7.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/BancoDataContext/tbFuncionario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="32701980-5fe0-49c6-954a-995c8f8c757f" absoluteBounds="0.765, 7.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14c7b5c1-d220-4d59-ae11-16f16360bceb" absoluteBounds="9, 4, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/BancoDataContext/tbPagamento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b87333cf-3eeb-43a2-a7ee-a88cb2d4d774" absoluteBounds="9.015, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac7f6fc7-8647-48a0-97ef-6ddebce4725b" absoluteBounds="0.75, 4.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/BancoDataContext/tbQuarto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b84c3a8-7a42-4967-8cf7-cfbba3247236" absoluteBounds="0.765, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abc6f645-44ff-4398-93af-f4dd5e7d75e5" absoluteBounds="3.5, 3.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/BancoDataContext/tbReserva" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f51c3e55-cb5c-4379-a072-65989153b549" absoluteBounds="3.515, 4.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c02299f3-a92b-486d-882e-73d4419f51b3" absoluteBounds="6.25, 4, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BancoDataContext/tbServico" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0de32742-8271-4fc6-922a-1215c5369bf0" absoluteBounds="6.265, 4.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 5.70599609375); (9 : 5.70599609375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BancoDataContext/tbReserva/tbReserva_tbPagamento" />
+      <nodes>
+        <classShapeMoniker Id="abc6f645-44ff-4398-93af-f4dd5e7d75e5" />
+        <classShapeMoniker Id="14c7b5c1-d220-4d59-ae11-16f16360bceb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.82774983723958); (4.5 : 1.82774983723958); (4.5 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BancoDataContext/tbHospede/tbHospede_tbReserva" />
+      <nodes>
+        <classShapeMoniker Id="1442f3e7-d1ad-4ebc-b0ca-800f209c4fde" />
+        <classShapeMoniker Id="abc6f645-44ff-4398-93af-f4dd5e7d75e5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.81814697265625); (3.5 : 4.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BancoDataContext/tbQuarto/tbQuarto_tbReserva" />
+      <nodes>
+        <classShapeMoniker Id="ac7f6fc7-8647-48a0-97ef-6ddebce4725b" />
+        <classShapeMoniker Id="abc6f645-44ff-4398-93af-f4dd5e7d75e5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.78929768880208); (9 : 4.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BancoDataContext/tbServico/tbServico_tbPagamento" />
+      <nodes>
+        <classShapeMoniker Id="c02299f3-a92b-486d-882e-73d4419f51b3" />
+        <classShapeMoniker Id="14c7b5c1-d220-4d59-ae11-16f16360bceb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.78929768880208); (6.25 : 4.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BancoDataContext/tbReserva/tbReserva_tbServico" />
+      <nodes>
+        <classShapeMoniker Id="abc6f645-44ff-4398-93af-f4dd5e7d75e5" />
+        <classShapeMoniker Id="c02299f3-a92b-486d-882e-73d4419f51b3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
