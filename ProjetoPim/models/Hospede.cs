@@ -8,6 +8,7 @@ namespace ProjetoPim.models
 {
     public class Hospede
     {
+        public Hospede() { }
         public int IdHospede { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
