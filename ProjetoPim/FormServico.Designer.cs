@@ -35,12 +35,12 @@ namespace ProjetoPim
             this.txtValorServico = new System.Windows.Forms.TextBox();
             this.lbTipoServico = new System.Windows.Forms.Label();
             this.txtTipoServico = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvServicos = new System.Windows.Forms.DataGridView();
             this.btnConsultarServico = new System.Windows.Forms.Button();
             this.txtIdReserva = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -102,16 +102,6 @@ namespace ProjetoPim
             this.txtTipoServico.Size = new System.Drawing.Size(310, 20);
             this.txtTipoServico.TabIndex = 14;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProjetoPim.Properties.Resources.nossoHotelLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(503, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // dgvServicos
             // 
             this.dgvServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -120,6 +110,7 @@ namespace ProjetoPim
             this.dgvServicos.Size = new System.Drawing.Size(583, 215);
             this.dgvServicos.TabIndex = 21;
             this.dgvServicos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServicos_CellContentDoubleClick);
+            this.dgvServicos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvServicos_CellFormatting);
             this.dgvServicos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvServicos_DataBindingComplete);
             // 
             // btnConsultarServico
@@ -140,6 +131,16 @@ namespace ProjetoPim
             this.txtIdReserva.TabIndex = 23;
             this.txtIdReserva.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProjetoPim.Properties.Resources.nossoHotelLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(503, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,8 +159,9 @@ namespace ProjetoPim
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormServico";
             this.Text = "Servico";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.FormServico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -14,10 +14,14 @@ namespace ProjetoPim
 {
     public partial class FormServico : Form
     {
+
+        private FormEditarServico JanelaEditarServico;
+
         public FormServico()
         {
             InitializeComponent();
-            //ConsultarServicos();
+
+            JanelaEditarServico = new FormEditarServico();
         }
 
         public void Registro_Preencher(int id)
@@ -144,16 +148,26 @@ namespace ProjetoPim
 
         private void EditarServico()
         {
+            var row = dgvServicos.CurrentRow.DataBoundItem as Servico;
+
+            Servico reserva = new Servico()
+            {
+                IdServico = row.IdServico,
+                Tipo = row.Tipo,
+                Valor = row.Valor
+            };
+
             try
             {
-                
+                JanelaEditarServico.Registro_Preencher(reserva);
+
+                JanelaEditarServico.ShowDialog();
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("Ocorrreu um erro. " + ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void ExcluirServico()
@@ -167,7 +181,7 @@ namespace ProjetoPim
 
             if (cancel)
             {
-                MessageBox.Show("Servio excluído com sucesso. ", "Cancelar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Serviço excluído com sucesso. ", "Cancelar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -264,6 +278,17 @@ namespace ProjetoPim
         {
             CadastrarServico();
             LimparCampos();
+        }
+
+        private void FormServico_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvServicos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            dgvServicos.Rows[e.RowIndex].Cells[0].ToolTipText = "Clique para editar";
+            dgvServicos.Rows[e.RowIndex].Cells[1].ToolTipText = "Clique para cancelar";
         }
     }
 }

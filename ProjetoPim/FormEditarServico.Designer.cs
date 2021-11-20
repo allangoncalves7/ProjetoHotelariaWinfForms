@@ -29,7 +29,7 @@ namespace ProjetoPim
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtIdReserva = new System.Windows.Forms.TextBox();
+            this.txtIdServico = new System.Windows.Forms.TextBox();
             this.lbTipoServico = new System.Windows.Forms.Label();
             this.txtValorServico = new System.Windows.Forms.TextBox();
             this.lbValorDiaria = new System.Windows.Forms.Label();
@@ -40,13 +40,13 @@ namespace ProjetoPim
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtIdReserva
+            // txtIdServico
             // 
-            this.txtIdReserva.Location = new System.Drawing.Point(11, 73);
-            this.txtIdReserva.Name = "txtIdReserva";
-            this.txtIdReserva.Size = new System.Drawing.Size(32, 20);
-            this.txtIdReserva.TabIndex = 32;
-            this.txtIdReserva.Visible = false;
+            this.txtIdServico.Location = new System.Drawing.Point(11, 73);
+            this.txtIdServico.Name = "txtIdServico";
+            this.txtIdServico.Size = new System.Drawing.Size(32, 20);
+            this.txtIdServico.TabIndex = 32;
+            this.txtIdServico.Visible = false;
             // 
             // lbTipoServico
             // 
@@ -85,6 +85,7 @@ namespace ProjetoPim
             this.btnSalvar.TabIndex = 28;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // button2
             // 
@@ -95,6 +96,7 @@ namespace ProjetoPim
             this.button2.TabIndex = 29;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtTipoServico
             // 
@@ -119,7 +121,7 @@ namespace ProjetoPim
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 129);
-            this.Controls.Add(this.txtIdReserva);
+            this.Controls.Add(this.txtIdServico);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSalvar);
@@ -138,7 +140,7 @@ namespace ProjetoPim
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtIdReserva;
+        private System.Windows.Forms.TextBox txtIdServico;
         private System.Windows.Forms.Label lbTipoServico;
         private System.Windows.Forms.TextBox txtValorServico;
         private System.Windows.Forms.Label lbValorDiaria;

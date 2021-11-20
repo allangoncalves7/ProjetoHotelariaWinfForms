@@ -221,6 +221,7 @@ namespace ProjetoPim
             this.Controls.Add(this.dgvReservas);
             this.Name = "FormReserva";
             this.Text = "Reserva";
+            this.Load += new System.EventHandler(this.FormReserva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
