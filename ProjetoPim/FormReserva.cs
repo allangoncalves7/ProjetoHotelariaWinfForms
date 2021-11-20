@@ -16,6 +16,7 @@ namespace ProjetoPim
     {
         private FormEditarReserva JanelaEditar;
         private FormServico JanelaServico;
+        private FormPagamento JanelaPagamento;
 
         public FormReserva()
         {
@@ -24,6 +25,7 @@ namespace ProjetoPim
 
             JanelaEditar = new FormEditarReserva();
             JanelaServico = new FormServico();
+            JanelaPagamento = new FormPagamento();
             JanelaEditar.OnFechar += FormEdit_OnFechar;
         }
 
@@ -48,7 +50,8 @@ namespace ProjetoPim
 
                 foreach (var quarto in tbquartos)
                 {
-                    xQuartos.Add(quarto.Descricao, quarto.IdQuarto);
+                    if(!xQuartos.ContainsKey(quarto.Descricao))
+                        xQuartos.Add(quarto.Descricao, quarto.IdQuarto);
                 }
 
                 cbHospede.DataSource = new BindingSource(xNomes, null);
@@ -388,7 +391,36 @@ namespace ProjetoPim
 
         private void InserirPagamento()
         {
+            var row = dgvReservas.CurrentRow.DataBoundItem as Reserva;
 
+            
+
+            try
+            {
+                Pagamento pagamento = new Pagamento();
+
+                var serv = ConsultarServicoByReserva(row.IdReserva);
+
+                int dias = (row.DtEntrada.Day - row.DtEntrada.Day);
+                decimal valorReserva = dias > 1 ? dias * row.ValorDiaria : row.ValorDiaria;
+
+                pagamento.IdReserva = row.IdReserva;
+                pagamento.NomeHospede = row.NomeHospede;
+                pagamento.ValorReserva = row.ValorDiaria;
+
+                pagamento.IdServico = serv.IdServico;
+                pagamento.ValorServico = serv.Valor;
+                pagamento.TotalPagamento = serv.Valor + valorReserva;
+
+
+                JanelaPagamento.Registro_Preencher(pagamento);
+
+                JanelaPagamento.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorrreu um erro. " + ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InserirServico()
@@ -492,6 +524,40 @@ namespace ProjetoPim
 
         }
 
+        public Servico ConsultarServicoByReserva(int idReserva)
+        {
+            try
+            {
+                HotelariaContext context = new HotelariaContext();
 
+                
+                var tbservico = context.ConsultarServicoByReserva(idReserva);
+
+                if (tbservico == null)
+                {
+                    return null;
+                }
+
+                Servico serv = new Servico
+                {
+                    IdServico = tbservico.IdServico,
+                    Tipo = tbservico.Tipo,
+                    Valor = tbservico.Valor
+                };
+
+                return serv;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possivel consultar serviço. Motivo: " + ex, "Consultar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        private void FormReserva_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

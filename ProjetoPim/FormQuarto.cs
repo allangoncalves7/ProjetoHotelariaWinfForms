@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoPim.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,14 +30,12 @@ namespace ProjetoPim
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String descricao = Descricao.ToString();
-            String valorDiario = ValorDiaria.ToString();
+            string descricao = Descricao.Text;
+            string valorDiarioconverte = ValorDiaria.Text;
+            valorDiarioconverte = valorDiarioconverte.Replace('.', ',');
+            decimal valorDiario = Convert.ToDecimal(valorDiarioconverte);
 
-            MessageBox.Show(
-                $"{descricao}, {valorDiario}",
-                "Form",
-                MessageBoxButtons.OK, MessageBoxIcon.Information
-            );
+            RegistrarQuarto(descricao, valorDiario);
         }
 
         private void CPF_KeyPress(object sender, KeyPressEventArgs e)
@@ -62,6 +61,23 @@ namespace ProjetoPim
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private bool RegistrarQuarto(string descricao, decimal valorDiaria)
+        {
+            models.Quarto quart = new models.Quarto()
+            {
+                Descricao = descricao,
+                ValorDiaria = valorDiaria
+            };
+
+            HotelariaContext context = new HotelariaContext();
+
+            Console.WriteLine(quart);
+            var insert = context.InserirQuarto(quart);
+
+            return insert;
 
         }
     }

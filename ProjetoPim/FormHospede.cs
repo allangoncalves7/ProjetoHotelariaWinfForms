@@ -67,16 +67,16 @@ namespace ProjetoPim
         {
             try
             {
-                //var registro = RegistrarHospede(Nome.Text, CPF.Text, Telefone.Text, Convert.ToDateTime(Data.Text), Email.Text);
+                var registro = RegistrarHospede(Nome.Text, CPF.Text, Telefone.Text, Convert.ToDateTime(Data.Text), Email.Text, "password");
 
-                //if (registro)
-                //{
-                //    MessageBox.Show(
-                //   $"Cadastro realizado com sucesso",
-                //   "Form",
-                //   MessageBoxButtons.OK, MessageBoxIcon.Information
-                //    );
-                //}
+                if (registro)
+                {
+                    MessageBox.Show(
+                   $"Cadastro realizado com sucesso",
+                   "Form",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information
+                    );
+                }
             }
             catch (Exception ex)
             {
@@ -158,6 +158,7 @@ namespace ProjetoPim
 
             HotelariaContext context = new HotelariaContext();
 
+            Console.WriteLine(hosp);
             var insert = context.InserirHospede(hosp);
 
             return insert;

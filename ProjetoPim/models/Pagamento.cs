@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace ProjetoPim.models
 {
-    class Pagamento
+    public class Pagamento
     {
+        public int IdPagamento { get; set; }
         public string Tipo { get; set; }
         public decimal TotalPagamento { get; set; }
         //ForeignKey
-        public Reserva Reserva { get; set; }
         public int IdReserva { get; set; }
+        public decimal ValorReserva { get; set; }
         //ForeignKey
-        public Servico Servico { get; set; }
         public int IdServico { get; set; }
+        public decimal ValorServico { get; set; }
+        public string NomeHospede { get; set; }
     }
 }

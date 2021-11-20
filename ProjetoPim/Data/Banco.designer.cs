@@ -27,9 +27,10 @@ namespace ProjetoPim.Data
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
-		
-    #region Extensibility Method Definitions
-    partial void OnCreated();
+        internal object tbQuarto;
+
+        #region Extensibility Method Definitions
+        partial void OnCreated();
     partial void InserttbHospede(tbHospede instance);
     partial void UpdatetbHospede(tbHospede instance);
     partial void DeletetbHospede(tbHospede instance);

@@ -217,7 +217,6 @@ namespace ProjetoPim.Data
 
         #endregion
 
-
         #region QUARTO
         public List<tbQuarto> ConsultarQuartos()
         {
@@ -236,6 +235,28 @@ namespace ProjetoPim.Data
                 throw ex;
             }
 
+        }
+        public bool InserirQuarto(models.Quarto quarto)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+                tbQuarto tb = new tbQuarto
+                {
+                    Descricao = quarto.Descricao,
+                    ValorDiaria = quarto.ValorDiaria
+                };
+
+                dt.tbQuartos.InsertOnSubmit(tb);
+                dt.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
         }
 
         #endregion
@@ -286,6 +307,25 @@ namespace ProjetoPim.Data
                 throw ex;
             }
         }
+        
+        public tbServico ConsultarServicoByReserva(int idReserva)
+        {
+
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var servico = dt.tbServicos.Where(x => x.IdReserva == idReserva).FirstOrDefault();
+
+                return servico;
+            }
+
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         public bool EditarServico(Servico servico)
         {
@@ -317,6 +357,100 @@ namespace ProjetoPim.Data
                 var delete = dt.tbServicos.Where(x => x.IdServico == id).FirstOrDefault();
 
                 dt.tbServicos.DeleteOnSubmit(delete);
+                dt.SubmitChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
+        #endregion
+
+        #region PAGAMENTO
+
+
+        public bool CadastrarPagamento(Pagamento pagamento)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+                tbPagamento tb = new tbPagamento
+                {
+                    IdReserva = pagamento.IdReserva,
+                    IdServico = pagamento.IdServico,
+                    Tipo = pagamento.Tipo,
+                    TotalPagamento = pagamento.TotalPagamento
+                };
+
+                dt.tbPagamentos.InsertOnSubmit(tb);
+                dt.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
+        public List<tbPagamento> ConsultarPagamentos()
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var pagamentos = from pag in dt.tbPagamentos
+                               select pag;
+
+                return pagamentos.
+                    OrderByDescending(x => x.IdPagamento).
+                    ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool EditarPagamento(Pagamento pagamento)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var update = dt.tbPagamentos.Where(x => x.IdPagamento == pagamento.IdPagamento).FirstOrDefault();
+                update.Tipo = pagamento.Tipo;
+                update.TotalPagamento = pagamento.TotalPagamento;
+                update.IdReserva = pagamento.IdReserva;
+                update.IdServico = pagamento.IdServico;
+
+                dt.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
+        public bool ExcluirPagamento(int id)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var delete = dt.tbPagamentos.Where(x => x.IdPagamento == id).FirstOrDefault();
+
+                dt.tbPagamentos.DeleteOnSubmit(delete);
                 dt.SubmitChanges();
 
                 return true;

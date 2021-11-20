@@ -36,7 +36,8 @@ namespace ProjetoPim
 
                 foreach (var quarto in tbquartos)
                 {
-                    xQuartos.Add(quarto.Descricao, quarto.IdQuarto);
+                    if (!xQuartos.ContainsKey(quarto.Descricao))
+                        xQuartos.Add(quarto.Descricao, quarto.IdQuarto);
                 }
 
 
