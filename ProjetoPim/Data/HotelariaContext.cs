@@ -236,6 +236,28 @@ namespace ProjetoPim.Data
             }
 
         }
+        public bool InserirQuarto(models.Quarto quarto)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+                tbQuarto tb = new tbQuarto
+                {
+                    Descricao = quarto.Descricao,
+                    ValorDiaria = quarto.ValorDiaria
+                };
+
+                dt.tbQuartos.InsertOnSubmit(tb);
+                dt.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
 
         #endregion
 
