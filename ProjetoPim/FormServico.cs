@@ -213,7 +213,7 @@ namespace ProjetoPim
 
             DataGridViewImageColumn columnExcluir = new DataGridViewImageColumn();
             columnExcluir.Image = Properties.Resources.cancel__1_;
-            columnEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            columnExcluir.ImageLayout = DataGridViewImageCellLayout.Zoom;
             columnExcluir.Width = 25;
             columnExcluir.Name = "columnExcluir";
             columnExcluir.HeaderText = "";
@@ -243,7 +243,7 @@ namespace ProjetoPim
         {
             if (dgvServicos.Columns[e.ColumnIndex] == dgvServicos.Columns["columnExcluir"])
             {
-                if (MessageBox.Show("Deseja excluir a reserva?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja excluir o serviço?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {

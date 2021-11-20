@@ -13,7 +13,7 @@ namespace ProjetoPim.Data
 
 
         #region HOSPEDE
-        public bool InserirHospede(models.Hospede hospede)
+        public bool InserirHospede(Hospede hospede)
         {
             try
             {
@@ -236,7 +236,7 @@ namespace ProjetoPim.Data
             }
 
         }
-        public bool InserirQuarto(models.Quarto quarto)
+        public bool InserirQuarto(Quarto quarto)
         {
             try
             {
@@ -286,6 +286,7 @@ namespace ProjetoPim.Data
                 throw new Exception("Ocorrreu um erro. Motivo: " + ex);
             }
         }
+        
 
         public List<tbServico> ConsultarServicos()
         {
@@ -379,13 +380,15 @@ namespace ProjetoPim.Data
             try
             {
                 var dt = new BancoDataContext(connectionString);
-                tbPagamento tb = new tbPagamento
-                {
-                    IdReserva = pagamento.IdReserva,
-                    IdServico = pagamento.IdServico,
-                    Tipo = pagamento.Tipo,
-                    TotalPagamento = pagamento.TotalPagamento
-                };
+                tbPagamento tb = new tbPagamento();
+
+                tb.IdReserva = pagamento.IdReserva;
+                int idserv = pagamento.IdServico;
+                if(idserv > 0)
+                    tb.IdServico = pagamento.IdServico;
+                tb.Tipo = pagamento.Tipo;
+                tb.TotalPagamento = pagamento.TotalPagamento;
+               
 
                 dt.tbPagamentos.InsertOnSubmit(tb);
                 dt.SubmitChanges();
@@ -412,6 +415,25 @@ namespace ProjetoPim.Data
                     OrderByDescending(x => x.IdPagamento).
                     ToList();
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public tbPagamento ConsultarPagamentoByReserva(int idReserva)
+        {
+
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var pagamento = dt.tbPagamentos.Where(x => x.IdReserva == idReserva).FirstOrDefault();
+
+                return pagamento;
+            }
+
             catch (Exception ex)
             {
 
