@@ -52,97 +52,110 @@ namespace ProjetoPim
             // dgvReservas
             // 
             this.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReservas.Location = new System.Drawing.Point(12, 142);
+            this.dgvReservas.Location = new System.Drawing.Point(16, 175);
+            this.dgvReservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvReservas.Name = "dgvReservas";
-            this.dgvReservas.Size = new System.Drawing.Size(776, 296);
+            this.dgvReservas.RowHeadersWidth = 51;
+            this.dgvReservas.Size = new System.Drawing.Size(1035, 364);
             this.dgvReservas.TabIndex = 0;
+            this.dgvReservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReservas_CellContentClick);
             this.dgvReservas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReservas_CellContentDoubleClick);
             this.dgvReservas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvReservas_CellFormatting);
             this.dgvReservas.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvReservas_DataBindingComplete);
             // 
             // txtDtEntrada
             // 
-            this.txtDtEntrada.Location = new System.Drawing.Point(12, 53);
+            this.txtDtEntrada.Location = new System.Drawing.Point(16, 65);
+            this.txtDtEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDtEntrada.Mask = "00/00/0000";
             this.txtDtEntrada.Name = "txtDtEntrada";
-            this.txtDtEntrada.Size = new System.Drawing.Size(100, 20);
+            this.txtDtEntrada.Size = new System.Drawing.Size(132, 22);
             this.txtDtEntrada.TabIndex = 1;
             this.txtDtEntrada.ValidatingType = typeof(System.DateTime);
             // 
             // txtDtSaida
             // 
-            this.txtDtSaida.Location = new System.Drawing.Point(12, 115);
+            this.txtDtSaida.Location = new System.Drawing.Point(16, 142);
+            this.txtDtSaida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDtSaida.Mask = "00/00/0000";
             this.txtDtSaida.Name = "txtDtSaida";
-            this.txtDtSaida.Size = new System.Drawing.Size(100, 20);
+            this.txtDtSaida.Size = new System.Drawing.Size(132, 22);
             this.txtDtSaida.TabIndex = 2;
             this.txtDtSaida.ValidatingType = typeof(System.DateTime);
             // 
             // lbDtEntrda
             // 
             this.lbDtEntrda.AutoSize = true;
-            this.lbDtEntrda.Location = new System.Drawing.Point(13, 34);
+            this.lbDtEntrda.Location = new System.Drawing.Point(17, 42);
+            this.lbDtEntrda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDtEntrda.Name = "lbDtEntrda";
-            this.lbDtEntrda.Size = new System.Drawing.Size(70, 13);
+            this.lbDtEntrda.Size = new System.Drawing.Size(92, 17);
             this.lbDtEntrda.TabIndex = 3;
             this.lbDtEntrda.Text = "Data Entrada";
             // 
             // lbDtSaida
             // 
             this.lbDtSaida.AutoSize = true;
-            this.lbDtSaida.Location = new System.Drawing.Point(12, 95);
+            this.lbDtSaida.Location = new System.Drawing.Point(16, 117);
+            this.lbDtSaida.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDtSaida.Name = "lbDtSaida";
-            this.lbDtSaida.Size = new System.Drawing.Size(62, 13);
+            this.lbDtSaida.Size = new System.Drawing.Size(78, 17);
             this.lbDtSaida.TabIndex = 4;
             this.lbDtSaida.Text = "Data Saída";
             // 
             // cbQuartos
             // 
             this.cbQuartos.FormattingEnabled = true;
-            this.cbQuartos.Location = new System.Drawing.Point(137, 52);
+            this.cbQuartos.Location = new System.Drawing.Point(183, 64);
+            this.cbQuartos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbQuartos.Name = "cbQuartos";
-            this.cbQuartos.Size = new System.Drawing.Size(121, 21);
+            this.cbQuartos.Size = new System.Drawing.Size(160, 24);
             this.cbQuartos.TabIndex = 5;
             // 
             // lbQuartos
             // 
             this.lbQuartos.AutoSize = true;
-            this.lbQuartos.Location = new System.Drawing.Point(276, 96);
+            this.lbQuartos.Location = new System.Drawing.Point(368, 118);
+            this.lbQuartos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbQuartos.Name = "lbQuartos";
-            this.lbQuartos.Size = new System.Drawing.Size(0, 13);
+            this.lbQuartos.Size = new System.Drawing.Size(0, 17);
             this.lbQuartos.TabIndex = 6;
             // 
             // lbQuarto
             // 
             this.lbQuarto.AutoSize = true;
-            this.lbQuarto.Location = new System.Drawing.Point(139, 34);
+            this.lbQuarto.Location = new System.Drawing.Point(185, 42);
+            this.lbQuarto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbQuarto.Name = "lbQuarto";
-            this.lbQuarto.Size = new System.Drawing.Size(39, 13);
+            this.lbQuarto.Size = new System.Drawing.Size(52, 17);
             this.lbQuarto.TabIndex = 7;
             this.lbQuarto.Text = "Quarto";
             // 
             // cbHospede
             // 
             this.cbHospede.FormattingEnabled = true;
-            this.cbHospede.Location = new System.Drawing.Point(137, 114);
+            this.cbHospede.Location = new System.Drawing.Point(183, 140);
+            this.cbHospede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbHospede.Name = "cbHospede";
-            this.cbHospede.Size = new System.Drawing.Size(121, 21);
+            this.cbHospede.Size = new System.Drawing.Size(160, 24);
             this.cbHospede.TabIndex = 8;
             // 
             // lbHospede
             // 
             this.lbHospede.AutoSize = true;
-            this.lbHospede.Location = new System.Drawing.Point(137, 95);
+            this.lbHospede.Location = new System.Drawing.Point(183, 117);
+            this.lbHospede.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbHospede.Name = "lbHospede";
-            this.lbHospede.Size = new System.Drawing.Size(50, 13);
+            this.lbHospede.Size = new System.Drawing.Size(65, 17);
             this.lbHospede.TabIndex = 9;
             this.lbHospede.Text = "Hospede";
             // 
             // btnReservar
             // 
-            this.btnReservar.Location = new System.Drawing.Point(319, 112);
+            this.btnReservar.Location = new System.Drawing.Point(425, 138);
+            this.btnReservar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReservar.Name = "btnReservar";
-            this.btnReservar.Size = new System.Drawing.Size(75, 23);
+            this.btnReservar.Size = new System.Drawing.Size(100, 28);
             this.btnReservar.TabIndex = 10;
             this.btnReservar.Text = "Reservar";
             this.btnReservar.UseVisualStyleBackColor = true;
@@ -150,9 +163,10 @@ namespace ProjetoPim
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(437, 112);
+            this.btnConsultar.Location = new System.Drawing.Point(583, 138);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.Size = new System.Drawing.Size(100, 28);
             this.btnConsultar.TabIndex = 11;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -160,9 +174,10 @@ namespace ProjetoPim
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(557, 112);
+            this.btnCancelar.Location = new System.Drawing.Point(743, 138);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -170,9 +185,10 @@ namespace ProjetoPim
             // 
             // btnConsultarTodas
             // 
-            this.btnConsultarTodas.Location = new System.Drawing.Point(679, 112);
+            this.btnConsultarTodas.Location = new System.Drawing.Point(905, 138);
+            this.btnConsultarTodas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConsultarTodas.Name = "btnConsultarTodas";
-            this.btnConsultarTodas.Size = new System.Drawing.Size(109, 23);
+            this.btnConsultarTodas.Size = new System.Drawing.Size(145, 28);
             this.btnConsultarTodas.TabIndex = 13;
             this.btnConsultarTodas.Text = "Consultar Todas";
             this.btnConsultarTodas.UseVisualStyleBackColor = true;
@@ -182,27 +198,29 @@ namespace ProjetoPim
             // 
             this.lbLogoname.AutoSize = true;
             this.lbLogoname.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLogoname.Location = new System.Drawing.Point(500, 40);
+            this.lbLogoname.Location = new System.Drawing.Point(667, 49);
+            this.lbLogoname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLogoname.Name = "lbLogoname";
-            this.lbLogoname.Size = new System.Drawing.Size(223, 32);
+            this.lbLogoname.Size = new System.Drawing.Size(267, 39);
             this.lbLogoname.TabIndex = 15;
             this.lbLogoname.Text = "NossoHotel.com";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProjetoPim.Properties.Resources.nossoHotelLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(386, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(515, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 83);
+            this.pictureBox1.Size = new System.Drawing.Size(144, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
             // FormReserva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.lbLogoname);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnConsultarTodas);
@@ -219,6 +237,7 @@ namespace ProjetoPim
             this.Controls.Add(this.txtDtSaida);
             this.Controls.Add(this.txtDtEntrada);
             this.Controls.Add(this.dgvReservas);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormReserva";
             this.Text = "Reserva";
             this.Load += new System.EventHandler(this.FormReserva_Load);

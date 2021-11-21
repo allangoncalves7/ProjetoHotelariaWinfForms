@@ -18,10 +18,10 @@ namespace ProjetoPim
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormReserva()); 
             //Application.Run(new Funcionario());
-            Application.Run(new FormQuarto());
+            //Application.Run(new FormQuarto());
             //Application.Run(new Servico());
             //Application.Run(new Pagamento());
-            //Application.Run(new FormHospede());
+            Application.Run(new FormHospede());
         }
     }
 }

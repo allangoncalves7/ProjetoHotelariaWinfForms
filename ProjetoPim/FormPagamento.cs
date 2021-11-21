@@ -123,13 +123,13 @@ namespace ProjetoPim
 
                 };
 
-                var insert = context.CadastrarServico(servico);
+                //var insert = context.CadastrarServico(servico);
 
-                if (insert)
-                {
-                    MessageBox.Show("Serviço inserido com sucesso. ", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                //if (insert)
+               // {
+               //     MessageBox.Show("Serviço inserido com sucesso. ", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               //     return;
+                //}
             }
             catch (Exception ex)
             {

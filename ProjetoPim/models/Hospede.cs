@@ -16,5 +16,6 @@ namespace ProjetoPim.models
         public string Telefone { get; set; }
         public DateTime DtNasc { get; set; }
         public string Senha { get; set; }
+        public DateTime Data { get; internal set; }
     }
 }

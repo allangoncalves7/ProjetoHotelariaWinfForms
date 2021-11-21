@@ -38,8 +38,10 @@
             this.Telefone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.Data = new System.Windows.Forms.DateTimePicker();
+            this.btnConsultarTodas = new System.Windows.Forms.Button();
+            this.dgvHospedes = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHospedes)).BeginInit();
             this.SuspendLayout();
             // 
             // Nome
@@ -136,16 +138,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(650, 170);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Data
             // 
             this.Data.Location = new System.Drawing.Point(12, 171);
@@ -154,13 +146,39 @@
             this.Data.TabIndex = 13;
             this.Data.ValueChanged += new System.EventHandler(this.Data_ValueChanged);
             // 
-            // Hospede
+            // btnConsultarTodas
+            // 
+            this.btnConsultarTodas.Location = new System.Drawing.Point(642, 167);
+            this.btnConsultarTodas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConsultarTodas.Name = "btnConsultarTodas";
+            this.btnConsultarTodas.Size = new System.Drawing.Size(145, 28);
+            this.btnConsultarTodas.TabIndex = 15;
+            this.btnConsultarTodas.Text = "Consultar Todas";
+            this.btnConsultarTodas.UseVisualStyleBackColor = true;
+            this.btnConsultarTodas.Click += new System.EventHandler(this.btnConsultarTodas_Click);
+            // 
+            // dgvHospedes
+            // 
+            this.dgvHospedes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHospedes.Location = new System.Drawing.Point(12, 215);
+            this.dgvHospedes.Name = "dgvHospedes";
+            this.dgvHospedes.RowHeadersWidth = 51;
+            this.dgvHospedes.RowTemplate.Height = 24;
+            this.dgvHospedes.Size = new System.Drawing.Size(775, 360);
+            this.dgvHospedes.TabIndex = 16;
+            this.dgvHospedes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHospedes_CellContentClick);
+            this.dgvHospedes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHospedes_CellContentDoubleClick);
+            this.dgvHospedes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHospedes_CellFormatting);
+            this.dgvHospedes.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvHospedes_DataBindingComplete);
+            // 
+            // FormHospede
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 226);
+            this.ClientSize = new System.Drawing.Size(800, 587);
+            this.Controls.Add(this.dgvHospedes);
+            this.Controls.Add(this.btnConsultarTodas);
             this.Controls.Add(this.Data);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -171,9 +189,10 @@
             this.Controls.Add(this.CPF);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Nome);
-            this.Name = "Hospede";
+            this.Name = "FormHospede";
             this.Text = "Hospede";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHospedes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,8 +210,9 @@
         private System.Windows.Forms.TextBox Telefone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker Data;
+        private System.Windows.Forms.Button btnConsultarTodas;
+        private System.Windows.Forms.DataGridView dgvHospedes;
     }
 }
 
