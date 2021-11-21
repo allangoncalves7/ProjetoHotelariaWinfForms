@@ -8,6 +8,7 @@ namespace ProjetoPim.models
 {
     public class Hospede
     {
+        public Hospede() { }
         public int IdHospede { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
@@ -15,5 +16,6 @@ namespace ProjetoPim.models
         public string Telefone { get; set; }
         public DateTime DtNasc { get; set; }
         public string Senha { get; set; }
+        public DateTime Data { get; internal set; }
     }
 }

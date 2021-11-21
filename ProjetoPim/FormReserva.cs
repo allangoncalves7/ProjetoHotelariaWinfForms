@@ -567,5 +567,10 @@ namespace ProjetoPim
         {
 
         }
+
+        private void dgvReservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

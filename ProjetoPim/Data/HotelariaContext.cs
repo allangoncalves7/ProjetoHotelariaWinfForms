@@ -83,6 +83,50 @@ namespace ProjetoPim.Data
 
         }
 
+        public bool ExcluirHospede(int id)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var delete = dt.tbHospedes.Where(x => x.IdHospede == id).FirstOrDefault();
+
+                dt.tbHospedes.DeleteOnSubmit(delete);
+                dt.SubmitChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
+        public bool EditarHospede(Hospede hospede)
+        {
+            try
+            {
+                var dt = new BancoDataContext(connectionString);
+
+                var update = dt.tbHospedes.Where(x => x.IdHospede == hospede.IdHospede).FirstOrDefault();
+                update.Nome = hospede.Nome;
+                update.Cpf = hospede.Cpf;
+                update.Email = hospede.Email;
+                update.Telefone = hospede.Telefone;
+
+                dt.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorrreu um erro. Motivo: " + ex);
+            }
+        }
+
         #endregion
 
         #region RESERVA
