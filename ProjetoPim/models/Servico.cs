@@ -11,8 +11,6 @@ namespace ProjetoPim.models
         public int IdServico { get; set; }
         public string Tipo { get; set; }
         public decimal Valor { get; set; }
-        //ForeignKey
-        public Reserva Reserva { get; set; }
         public int IdReserva { get; set; }
         public string NomeHospede { get; set; }
     }

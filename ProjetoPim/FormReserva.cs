@@ -176,7 +176,7 @@ namespace ProjetoPim
 
             DataGridViewImageColumn columnCancelar = new DataGridViewImageColumn();
             columnCancelar.Image = Properties.Resources.cancel__1_;
-            columnEditar.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            columnCancelar.ImageLayout = DataGridViewImageCellLayout.Zoom;
             columnCancelar.Width = 25;
             columnCancelar.Name = "columnCancelar";
             columnCancelar.HeaderText = "";
@@ -401,16 +401,24 @@ namespace ProjetoPim
 
                 var serv = ConsultarServicoByReserva(row.IdReserva);
 
+                if(serv == null)
+                {
+                    MessageBox.Show("Está reserva não possui serviço vinculado. Para proseguir com o pagamento infome o serviço como \" Não solicitado\" e valor igual a zero!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 int dias = (row.DtEntrada.Day - row.DtEntrada.Day);
                 decimal valorReserva = dias > 1 ? dias * row.ValorDiaria : row.ValorDiaria;
+                decimal valorServico = serv == null ? 0 : serv.Valor;
 
                 pagamento.IdReserva = row.IdReserva;
                 pagamento.NomeHospede = row.NomeHospede;
                 pagamento.ValorReserva = row.ValorDiaria;
 
-                pagamento.IdServico = serv.IdServico;
-                pagamento.ValorServico = serv.Valor;
-                pagamento.TotalPagamento = serv.Valor + valorReserva;
+
+                pagamento.IdServico = serv == null ? 0 : serv.IdServico;
+                pagamento.ValorServico = serv == null ? 0 : serv.Valor;
+                pagamento.TotalPagamento = valorServico + valorReserva;
 
 
                 JanelaPagamento.Registro_Preencher(pagamento);

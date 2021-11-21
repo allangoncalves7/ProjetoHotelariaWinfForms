@@ -38,6 +38,7 @@ namespace ProjetoPim
             this.dgvPagamentos = new System.Windows.Forms.DataGridView();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.txtIdReserva = new System.Windows.Forms.TextBox();
+            this.txtIdServico = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagamentos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,11 +131,20 @@ namespace ProjetoPim
             this.txtIdReserva.TabIndex = 23;
             this.txtIdReserva.Visible = false;
             // 
+            // txtIdServico
+            // 
+            this.txtIdServico.Location = new System.Drawing.Point(163, 67);
+            this.txtIdServico.Name = "txtIdServico";
+            this.txtIdServico.Size = new System.Drawing.Size(25, 20);
+            this.txtIdServico.TabIndex = 24;
+            this.txtIdServico.Visible = false;
+            // 
             // FormPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 330);
+            this.Controls.Add(this.txtIdServico);
             this.Controls.Add(this.txtIdReserva);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dgvPagamentos);
@@ -165,5 +175,6 @@ namespace ProjetoPim
         private System.Windows.Forms.DataGridView dgvPagamentos;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.TextBox txtIdReserva;
+        private System.Windows.Forms.TextBox txtIdServico;
     }
 }
