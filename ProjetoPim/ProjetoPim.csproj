@@ -88,6 +88,18 @@
     <Compile Include="FormHospede.Designer.cs">
       <DependentUpon>FormHospede.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTelas.Designer.cs">
+      <DependentUpon>FormTelas.cs</DependentUpon>
+    </Compile>
     <Compile Include="models\Funcionario.cs" />
     <Compile Include="models\Hospede.cs" />
     <Compile Include="models\Pagamento.cs" />
@@ -135,8 +147,14 @@
     <EmbeddedResource Include="FormHospede.resx">
       <DependentUpon>FormHospede.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPagamento.resx">
       <DependentUpon>FormPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTelas.resx">
+      <DependentUpon>FormTelas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
