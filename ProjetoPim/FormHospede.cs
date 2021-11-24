@@ -286,7 +286,7 @@ namespace ProjetoPim
         {
             if (dgvHospedes.Columns[e.ColumnIndex] == dgvHospedes.Columns["columnExcluir"])
             {
-                if (MessageBox.Show("Deseja excluir a reserva?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja excluir a hospede?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {

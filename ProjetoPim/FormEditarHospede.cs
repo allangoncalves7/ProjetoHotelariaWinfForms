@@ -45,7 +45,7 @@ namespace ProjetoPim
 
                 if (insert)
                 {
-                    MessageBox.Show("Reserva atualizada com sucesso. ", "Reservar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Hospede editado com sucesso. ", "Ok", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }
